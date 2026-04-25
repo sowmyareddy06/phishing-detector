@@ -1,0 +1,125 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 360px;
+  background: #07101d;
+  color: #e6f7ff;
+}
+
+.popup-shell {
+  padding: 18px;
+}
+
+header {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.logo {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, #00d4ff, #00ff88);
+  border-radius: 14px;
+  font-size: 1.5rem;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+header p {
+  margin: 4px 0 0;
+  color: #9ec8ff;
+  font-size: 0.85rem;
+}
+
+.site-card,
+.detail-card,
+.reason-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+
+.site-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+}
+
+.site-row strong {
+  font-weight: 700;
+  text-align: right;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.detail-card h2,
+.reason-card h2 {
+  margin: 0 0 10px;
+  font-size: 0.9rem;
+  color: #a0d9ff;
+}
+
+.detail-card p {
+  margin: 4px 0;
+  font-size: 0.95rem;
+}
+
+.reason-card ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.9rem;
+  color: #cce8ff;
+}
+
+.reason-card li {
+  margin-bottom: 8px;
+}
+
+.bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+button {
+  border: none;
+  padding: 10px 14px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #00d4ff, #00ff88);
+  color: #07101d;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.95;
+}
+
+#source-badge {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  color: #d0eaff;
+}

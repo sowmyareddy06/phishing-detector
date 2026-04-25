@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Website Intelligence & Phishing Detector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="background">
+        <div class="cyber-grid"></div>
+        <div class="floating-elements">
+            <div class="element shield">🛡️</div>
+            <div class="element network">🌐</div>
+            <div class="element lock">🔒</div>
+            <div class="element radar">📡</div>
+        </div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>AI Website Intelligence & Phishing Detector</h1>
+            <p>Comprehensive A-Z analysis of any website: safety, traffic, users, reviews & AI insights</p>
+        </header>
+
+        <div class="input-section">
+            <div class="input-container">
+                <input type="url" id="url-input" placeholder="https://example.com" required>
+                <button id="analyze-btn" class="analyze-btn">Analyze Website</button>
+            </div>
+        </div>
+
+        <div id="loading" class="loading hidden">
+            <div class="loading-content">
+                <div class="spinner"></div>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                    <p id="loading-text">Initializing analysis...</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="results" class="results hidden">
+            <!-- Safety Analysis -->
+            <section class="section">
+                <h2>🔒 Safety Analysis</h2>
+                <div class="cards-grid">
+                    <div class="card safety-card">
+                        <h3>Trust Score</h3>
+                        <div class="trust-score">
+                            <div class="score-circle">
+                                <span id="trust-score">0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>Risk Level</h3>
+                        <span id="risk-level" class="risk-badge"></span>
+                    </div>
+                    <div class="card">
+                        <h3>Reasons</h3>
+                        <ul id="reasons-list"></ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Website Overview -->
+            <section class="section">
+                <h2>🌐 Website Overview</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3>Domain Age</h3>
+                        <p id="domain-age">0 years</p>
+                    </div>
+                    <div class="card">
+                        <h3>HTTPS Status</h3>
+                        <p id="https-status">Unknown</p>
+                    </div>
+                    <div class="card">
+                        <h3>Hosting Country</h3>
+                        <p id="hosting-country">Unknown</p>
+                    </div>
+                    <div class="card">
+                        <h3>Registrar</h3>
+                        <p id="registrar">Unknown</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Traffic & Usage Analytics -->
+            <section class="section">
+                <h2>📊 Traffic & Usage Analytics</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3>Monthly Users</h3>
+                        <p id="monthly-users">0</p>
+                    </div>
+                    <div class="card">
+                        <h3>Daily Visitors</h3>
+                        <p id="daily-visitors">0</p>
+                    </div>
+                    <div class="card">
+                        <h3>Bounce Rate</h3>
+                        <p id="bounce-rate">0%</p>
+                    </div>
+                    <div class="card">
+                        <h3>Avg Session Duration</h3>
+                        <p id="session-duration">0 sec</p>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <h3>Traffic Sources</h3>
+                    <canvas id="traffic-chart"></canvas>
+                </div>
+            </section>
+
+            <!-- User Demographics -->
+            <section class="section">
+                <h2>👥 User Demographics</h2>
+                <div class="charts-row">
+                    <div class="chart-container">
+                        <h3>Age Groups</h3>
+                        <canvas id="age-chart"></canvas>
+                    </div>
+                    <div class="chart-container">
+                        <h3>Device Usage</h3>
+                        <canvas id="device-chart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-container">
+                    <h3>Top Countries</h3>
+                    <canvas id="country-chart"></canvas>
+                </div>
+            </section>
+
+            <!-- Reviews & Reputation -->
+            <section class="section">
+                <h2>⭐ Reviews & Reputation</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3>Overall Rating</h3>
+                        <div class="rating">
+                            <span id="rating-stars">★★★★★</span>
+                            <span id="rating-value">0.0</span>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3>Total Reviews</h3>
+                        <p id="total-reviews">0</p>
+                    </div>
+                    <div class="card">
+                        <h3>Positive Reviews</h3>
+                        <p id="positive-reviews">0</p>
+                    </div>
+                    <div class="card">
+                        <h3>Negative Reviews</h3>
+                        <p id="negative-reviews">0</p>
+                    </div>
+                </div>
+                <div class="reviews-section">
+                    <h3>Recent Reviews</h3>
+                    <div id="reviews-list" class="reviews-list"></div>
+                </div>
+            </section>
+
+            <!-- AI Insights -->
+            <section class="section">
+                <h2>🤖 AI Insights</h2>
+                <div class="cards-grid">
+                    <div class="card">
+                        <h3>Main Purpose</h3>
+                        <p id="purpose">Unknown</p>
+                    </div>
+                    <div class="card full-width">
+                        <h3>AI-Generated Summary</h3>
+                        <p id="summary">No summary available.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Growth Visualization -->
+            <section class="section">
+                <h2>📈 Growth Trends</h2>
+                <div class="chart-container">
+                    <h3>Yearly User Growth</h3>
+                    <canvas id="growth-chart"></canvas>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

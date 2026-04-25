@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Website Intelligence</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body>
+  <div class="popup-shell">
+    <header>
+      <div class="logo">🛡️</div>
+      <div>
+        <h1>Website Intelligence</h1>
+        <p>Real-time URL risk analysis</p>
+      </div>
+    </header>
+
+    <section class="site-card">
+      <div class="site-row">
+        <span>Current URL</span>
+        <strong id="url">Loading...</strong>
+      </div>
+      <div class="site-row">
+        <span>Risk Level</span>
+        <strong id="risk-level">—</strong>
+      </div>
+      <div class="site-row">
+        <span>Trust Score</span>
+        <strong id="trust-score">—</strong>
+      </div>
+    </section>
+
+    <section class="detail-grid">
+      <div class="detail-card">
+        <h2>Traffic</h2>
+        <p id="monthly-users">—</p>
+        <p id="daily-visitors">—</p>
+      </div>
+      <div class="detail-card">
+        <h2>Top Purpose</h2>
+        <p id="purpose">—</p>
+      </div>
+      <div class="detail-card">
+        <h2>HTTPS</h2>
+        <p id="https-status">—</p>
+      </div>
+    </section>
+
+    <section class="reason-card">
+      <h2>Why this score?</h2>
+      <ul id="reasons"></ul>
+    </section>
+
+    <div class="bottom-row">
+      <button id="refresh-btn">Refresh analysis</button>
+      <span id="source-badge">Local analysis</span>
+    </div>
+  </div>
+
+  <script src="analyzer.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
